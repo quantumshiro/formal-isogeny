@@ -23,4 +23,11 @@ instance {W_1 W_2 : WeierstrassCurve F} :
   ) where
   coe φ := φ.toFun
 
+structure Isogeny (W_1 W_2 : WeierstrassCurve F) extends WeierstrassCurveMorphism (F := F) W_1 W_2
+where
+  map_zero : toFun 0 = 0
+  nonconstant: ∃ P Q: WeierstrassCurve.Projective.Point W_1,
+    P ≠ Q ∧ toFun P ≠ toFun Q
+
+
 end FormalIsogeny
